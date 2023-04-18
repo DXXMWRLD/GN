@@ -104,7 +104,7 @@ def noizer2(msg: str, mode: int) -> str:
     code_len = mode + s_num 
     cnt = len(msg) // code_len
     result = ""
-    for i in range(0, cnt, 4):
+    for i in range(0, cnt, 3):
         to_noize = seq[i * code_len:i * code_len + code_len]
         noize1 = randrange(code_len)
         noize2 = randrange(code_len)
@@ -141,7 +141,7 @@ ChatGPT имеет множество ограничений. Модель во�
     print(f'Контрольная сумма: {crc64(dec_msg)} ')
     print(f'Значения сумм совпадают:{crc64(dec_msg) == checksum}')
     print(f'Совпадение текстов: {msg == dec_msg}')
-    print('\n3) До двух ошибок на каждое 4-ое слово\n')
+    print('\n3) До двух ошибок на каждое 3-ое слово\n')
     noize_msg = noizer2(enc_msg, MODE)
     print(f'Кодированное сообщение:\n{noize_msg}')
     dec_msg, err = hamming_decode(noize_msg, MODE)
